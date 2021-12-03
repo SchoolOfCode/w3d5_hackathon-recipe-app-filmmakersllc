@@ -1,0 +1,17 @@
+:root {
+
+
+}
+
+#navBar {
+background-color: #8EA4D2;
+display: inline;
+display: flex;
+justify-content: space-around;
+}
+
+#ulNavBar li{
+    display: inline;
+   
+
+}
