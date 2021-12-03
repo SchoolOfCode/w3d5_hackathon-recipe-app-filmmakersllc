@@ -1,30 +1,36 @@
-let data = []
+let data = [];
 
 async function fetchRecipeJapanese() {
-  const response = await fetch("https://api.edamam.com/api/recipes/v2?type=public&q=Japanese&app_id=358691d7&app_key=6d3343d1f4e0ce2985ce38706db31e4c");
+  const response = await fetch(
+    "https://api.edamam.com/api/recipes/v2?type=public&q=Japanese&app_id=358691d7&app_key=6d3343d1f4e0ce2985ce38706db31e4c"
+  );
   data = await response.json();
   console.log(data);
   let recipe = document.querySelector("#recipe");
-  recipe = data.hits[0];
-};
- fetchRecipeJapanese();
-
-
-
-
-
-async function fetchRecipeItalian() {
-  const response = await fetch("https://api.edamam.com/api/recipes/v2");
-  const data = await response.json();
-  console.log(data);
+  recipe.innerText = data.hits[0].recipe.url;
+  recipe.href = data.hits[0].recipe.url;
 }
-async function fetchRecipeMexican() {
-  const response = await fetch(
-    "https://api.edamam.com/api/recipes/v2/{cuisineType}/Mexican"
-  );
-  const data = await response.json();
-  console.log(data);
-}
+
+fetchRecipeJapanese();
+// async function urlImage(){
+//     const response = await fetch("https://api.edamam.com/api/recipes/v2");
+//     const data = await response.json();
+//     console.log(data);
+//  }
+
+// }
+// async function fetchRecipeItalian() {
+//   const response = await fetch("https://api.edamam.com/api/recipes/v2");
+//   const data = await response.json();
+//   console.log(data);
+// }
+// async function fetchRecipeMexican() {
+//   const response = await fetch(
+//     "https://api.edamam.com/api/recipes/v2/{cuisineType}/Mexican"
+//   );
+//   const data = await response.json();
+//   console.log(data);
+// }
 
 let japaneseFood = document.querySelector("#japaneseFood");
 let italianFood = document.querySelector("#italianFood");
@@ -32,7 +38,6 @@ let mexicanFood = document.querySelector("#mexicanFood");
 document.addEventListener("click", fetchRecipeJapanese);
 document.addEventListener("click", fetchRecipeItalian);
 document.addEventListener("click", fetchRecipeMexican);
-
 
 //General Ideas
 // We are making a receipe generator app, user design principles.
