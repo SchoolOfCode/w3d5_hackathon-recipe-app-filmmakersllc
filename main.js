@@ -1,18 +1,18 @@
-async function fetchRecipeJapanese() {
-  let data;
-  const response = await fetch("https://api.edamam.com/api/recipes/v2");
-  data = await response.json();
-  console.log(data);
-}
-fetchRecipeJapanese();
+let data = []
 
 async function fetchRecipeJapanese() {
-  const response = await fetch(
-    "https://api.edamam.com/api/recipes/v2/{cuisineType}/Japanese"
-  );
-  const data = await response.json();
+  const response = await fetch("https://api.edamam.com/api/recipes/v2?type=public&q=Japanese&app_id=358691d7&app_key=6d3343d1f4e0ce2985ce38706db31e4c");
+  data = await response.json();
   console.log(data);
-}
+  let recipe = document.querySelector("#recipe");
+  recipe = data.hits[0];
+};
+ fetchRecipeJapanese();
+
+
+
+
+
 async function fetchRecipeItalian() {
   const response = await fetch("https://api.edamam.com/api/recipes/v2");
   const data = await response.json();
@@ -29,11 +29,12 @@ async function fetchRecipeMexican() {
 let japaneseFood = document.querySelector("#japaneseFood");
 let italianFood = document.querySelector("#italianFood");
 let mexicanFood = document.querySelector("#mexicanFood");
-japaneseFood.addEventListener("click", fetchRecipeJapanese);
-italianFood.addEventListener("click", fetchRecipeItalian);
-mexicanFood.addEventListener("click", fetchRecipeMexican);
+document.addEventListener("click", fetchRecipeJapanese);
+document.addEventListener("click", fetchRecipeItalian);
+document.addEventListener("click", fetchRecipeMexican);
 
-// General Ideas
+
+//General Ideas
 // We are making a receipe generator app, user design principles.
 // Options of categories, cakes, chinese, pizza, korean, sushi-> get a random reciepe from api database
 // Recent articles about food at the bottom of the screen.
