@@ -2,7 +2,14 @@ function handleRecipeClick() {}
 
 function handleInputChange() {}
 
-async function fetchRecipe(food) {}
+
+
+async function fetchRecipe() {
+    const response = await fetch("https://api.edamam.com/api/recipes/v2");
+    const data = await response.json();
+    console.log(data)
+}
+
 
 // General Ideas
 // We are making a receipe generator app, user design principles. 
@@ -29,3 +36,12 @@ async function fetchRecipe(food) {}
     //Fetch recipe API Randomly, cuisineType based on what they click
 
 
+//on click function that listens for an event when someone clicks the image
+
+//Depending on the different image they click, that cuisine type will be displayed on recipe.html
+
+//fnction that will use the chosen cuisine, changing the 
+    //information displayed from the api .
+
+//api="www.ilikeapi.com/spiderman"
+//function api (input) { `www.ilikeapi.com/${input}` };
